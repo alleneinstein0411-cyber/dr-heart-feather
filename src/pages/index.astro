@@ -9,6 +9,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 const posts = (await getCollection('blog'))
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 	.slice(0, 3);
+const base = import.meta.env.BASE_URL;
 
 const paths = [
 	{
@@ -42,8 +43,8 @@ const paths = [
 						用診間故事，陪民眾看懂心臟病、心導管與治療選擇。這裡先不急著給答案，而是把每一次不安、猶豫和選擇慢慢說清楚。
 					</p>
 					<div class="button-row">
-						<a class="button" href="/blog/">閱讀文章</a>
-						<a class="button secondary" href="/about/">關於張醫師</a>
+						<a class="button" href={`${base}blog/`}>閱讀文章</a>
+						<a class="button secondary" href={`${base}about/`}>關於張醫師</a>
 					</div>
 				</div>
 				<div class="hero-panel" aria-label="網站內容重點">
@@ -87,12 +88,12 @@ const paths = [
 						<p class="eyebrow">Latest Notes</p>
 						<h2 id="latest-title">最新文章</h2>
 					</div>
-					<a href="/blog/">全部文章</a>
+					<a href={`${base}blog/`}>全部文章</a>
 				</div>
 				<div class="post-list">
 					{
 						posts.map((post) => (
-							<a class="post-row" href={`/blog/${post.id}/`}>
+							<a class="post-row" href={`${base}blog/${post.id}/`}>
 								<span class="tag">{post.data.category ?? '衛教文章'}</span>
 								<span class="post-title">{post.data.title}</span>
 								<span class="post-date"><FormattedDate date={post.data.pubDate} /></span>
