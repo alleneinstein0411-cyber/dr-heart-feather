@@ -1,9 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import HualienHero from '../assets/home/hualien-fields-birds-hero.png';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 const posts = (await getCollection('blog'))
@@ -44,28 +46,19 @@ const paths = [
 		<Header />
 		<main>
 			<section class="hero" aria-labelledby="hero-title">
-				<div class="hero-copy">
-					<p class="eyebrow">Patient Education · Cardiology Notes</p>
-					<h1 id="hero-title">張醫師心羽診間</h1>
-					<p class="hero-lede">
-						用診間故事，陪民眾看懂心臟病、心導管與治療選擇。這裡先不急著給答案，而是把每一次不安、猶豫和選擇慢慢說清楚。
-					</p>
-					<div class="button-row">
-						<a class="button" href={`${base}blog/`}>閱讀文章</a>
+				<Image class="hero-bg" src={HualienHero} alt="" loading="eager" widths={[960, 1400, 1920]} sizes="100vw" />
+				<div class="hero-shade" aria-hidden="true"></div>
+				<div class="hero-inner">
+					<div class="hero-copy">
+						<p class="eyebrow">Patient Education · Cardiology Notes</p>
+						<h1 id="hero-title">張醫師心羽診間</h1>
+						<p class="hero-lede">
+							用診間故事，陪民眾看懂心臟病、心導管與治療選擇。像花蓮的田和天空一樣，把複雜的事慢慢攤開，讓心裡有地方可以呼吸。
+						</p>
+						<div class="button-row">
+							<a class="button" href={`${base}blog/`}>閱讀文章</a>
+						</div>
 					</div>
-				</div>
-				<div class="hero-panel" aria-label="網站內容重點">
-					<div class="feather-visual" aria-hidden="true">
-						<span></span>
-						<span></span>
-						<span></span>
-					</div>
-					<p class="panel-title">寫給病人與家屬的心臟筆記</p>
-					<ul>
-						<li>故事先行，醫學重點收尾</li>
-						<li>來源可靠，避免過度承諾</li>
-						<li>用字清楚，不把焦慮放大</li>
-					</ul>
 				</div>
 			</section>
 
@@ -116,89 +109,61 @@ const paths = [
 
 <style>
 	.hero {
+		position: relative;
 		display: grid;
-		grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
 		align-items: center;
-		min-height: calc(100vh - 132px);
-		gap: 44px;
-		padding: 44px 0 72px;
+		width: 100vw;
+		min-height: calc(100vh - 112px);
+		margin-left: calc(50% - 50vw);
+		margin-top: -56px;
+		overflow: hidden;
+	}
+
+	.hero-bg {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	.hero-shade {
+		position: absolute;
+		inset: 0;
+		background:
+			linear-gradient(90deg, rgba(255, 253, 248, 0.88) 0%, rgba(255, 253, 248, 0.66) 38%, rgba(255, 253, 248, 0.08) 72%),
+			linear-gradient(180deg, rgba(255, 253, 248, 0.12), rgba(38, 50, 56, 0.18));
+	}
+
+	.hero-inner {
+		position: relative;
+		width: min(1120px, calc(100% - 32px));
+		margin: 0 auto;
+		padding: 88px 0 96px;
 	}
 
 	.hero-copy {
-		max-width: 720px;
+		max-width: 660px;
 	}
 
 	.hero h1 {
 		margin-bottom: 1rem;
-		font-size: 4.4rem;
+		font-size: 4.8rem;
+		text-wrap: balance;
 	}
 
 	.hero-lede {
-		max-width: 660px;
-		color: #43514d;
-		font-size: 1.22rem;
-		line-height: 1.8;
+		max-width: 620px;
+		color: #344540;
+		font-size: 1.2rem;
+		line-height: 1.9;
 	}
 
-	.hero-panel {
-		position: relative;
-		padding: 32px;
-		border: 1px solid rgba(41, 88, 109, 0.18);
-		border-radius: 8px;
-		background:
-			linear-gradient(150deg, rgba(255, 253, 248, 0.92), rgba(232, 244, 238, 0.86)),
-			var(--paper);
-		box-shadow: var(--shadow);
-		overflow: hidden;
+	.hero .button {
+		box-shadow: 0 14px 34px rgba(38, 50, 56, 0.16);
 	}
 
-	.feather-visual {
-		position: relative;
-		height: 220px;
-		margin-bottom: 28px;
-		border-radius: 8px;
-		background:
-			linear-gradient(115deg, transparent 0 42%, rgba(41, 88, 109, 0.2) 43% 44%, transparent 45%),
-			radial-gradient(circle at 22% 22%, rgba(255, 255, 255, 0.92), transparent 34%),
-			linear-gradient(135deg, rgba(84, 143, 143, 0.25), rgba(201, 135, 100, 0.18));
-	}
-
-	.feather-visual span {
-		position: absolute;
-		left: 50%;
-		width: 132px;
-		height: 42px;
-		border: 1px solid rgba(41, 88, 109, 0.24);
-		border-radius: 999px 999px 999px 8px;
-		background: rgba(255, 253, 248, 0.72);
-		transform-origin: left center;
-	}
-
-	.feather-visual span:nth-child(1) {
-		top: 54px;
-		transform: rotate(-34deg);
-	}
-
-	.feather-visual span:nth-child(2) {
-		top: 92px;
-		transform: rotate(-12deg);
-	}
-
-	.feather-visual span:nth-child(3) {
-		top: 130px;
-		transform: rotate(12deg);
-	}
-
-	.panel-title {
-		color: var(--ink);
-		font-weight: 700;
-	}
-
-	.hero-panel ul {
-		margin: 0;
-		padding-left: 1.15rem;
-		color: var(--muted);
-	}
 
 	.post-list {
 		border-top: 1px solid var(--line);
@@ -231,9 +196,8 @@ const paths = [
 
 	@media (max-width: 860px) {
 		.hero {
-			grid-template-columns: 1fr;
 			min-height: auto;
-			padding: 28px 0 46px;
+			margin-top: -34px;
 		}
 
 		.hero h1 {
@@ -242,6 +206,16 @@ const paths = [
 
 		.hero-lede {
 			font-size: 1.06rem;
+		}
+
+		.hero-shade {
+			background:
+				linear-gradient(180deg, rgba(255, 253, 248, 0.88), rgba(255, 253, 248, 0.58) 62%, rgba(38, 50, 56, 0.12)),
+				linear-gradient(90deg, rgba(255, 253, 248, 0.5), transparent);
+		}
+
+		.hero-inner {
+			padding: 72px 0 82px;
 		}
 
 		.post-row {
