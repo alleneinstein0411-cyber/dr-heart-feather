@@ -1,49 +1,248 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const posts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
+
+const paths = [
+	{
+		title: '個案故事',
+		text: '以匿名改寫的診間故事，帶出症狀、檢查、治療選擇與照護提醒。',
+	},
+	{
+		title: '心導管與支架',
+		text: '把檢查流程、治療目的、風險與術後照護，用民眾聽得懂的語言說清楚。',
+	},
+	{
+		title: '症狀與就醫時機',
+		text: '整理胸痛、胸悶、喘、心悸等常見困惑，幫助讀者知道何時需要就醫。',
+	},
+];
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hant">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section class="hero" aria-labelledby="hero-title">
+				<div class="hero-copy">
+					<p class="eyebrow">Patient Education · Cardiology Notes</p>
+					<h1 id="hero-title">張醫師心羽診間</h1>
+					<p class="hero-lede">
+						用診間故事，陪民眾看懂心臟病、心導管與治療選擇。這裡先不急著給答案，而是把每一次不安、猶豫和選擇慢慢說清楚。
+					</p>
+					<div class="button-row">
+						<a class="button" href="/blog/">閱讀文章</a>
+						<a class="button secondary" href="/about/">關於張醫師</a>
+					</div>
+				</div>
+				<div class="hero-panel" aria-label="網站內容重點">
+					<div class="feather-visual" aria-hidden="true">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+					<p class="panel-title">寫給病人與家屬的心臟筆記</p>
+					<ul>
+						<li>故事先行，醫學重點收尾</li>
+						<li>來源可靠，避免過度承諾</li>
+						<li>用字清楚，不把焦慮放大</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="section" aria-labelledby="paths-title">
+				<div class="section-header">
+					<div>
+						<p class="eyebrow">Writing Lanes</p>
+						<h2 id="paths-title">慢慢累積的三種文章</h2>
+					</div>
+					<p>先把分類定好，之後每一篇新文章都能自然放進網站，不需要重新規劃整個架構。</p>
+				</div>
+				<div class="card-grid">
+					{
+						paths.map((path) => (
+							<article class="card">
+								<h3>{path.title}</h3>
+								<p>{path.text}</p>
+							</article>
+						))
+					}
+				</div>
+			</section>
+
+			<section class="section" aria-labelledby="latest-title">
+				<div class="section-header">
+					<div>
+						<p class="eyebrow">Latest Notes</p>
+						<h2 id="latest-title">最新文章</h2>
+					</div>
+					<a href="/blog/">全部文章</a>
+				</div>
+				<div class="post-list">
+					{
+						posts.map((post) => (
+							<a class="post-row" href={`/blog/${post.id}/`}>
+								<span class="tag">{post.data.category ?? '衛教文章'}</span>
+								<span class="post-title">{post.data.title}</span>
+								<span class="post-date"><FormattedDate date={post.data.pubDate} /></span>
+							</a>
+						))
+					}
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.hero {
+		display: grid;
+		grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
+		align-items: center;
+		min-height: calc(100vh - 132px);
+		gap: 44px;
+		padding: 44px 0 72px;
+	}
+
+	.hero-copy {
+		max-width: 720px;
+	}
+
+	.hero h1 {
+		margin-bottom: 1rem;
+		font-size: 4.4rem;
+	}
+
+	.hero-lede {
+		max-width: 660px;
+		color: #43514d;
+		font-size: 1.22rem;
+		line-height: 1.8;
+	}
+
+	.hero-panel {
+		position: relative;
+		padding: 32px;
+		border: 1px solid rgba(41, 88, 109, 0.18);
+		border-radius: 8px;
+		background:
+			linear-gradient(150deg, rgba(255, 253, 248, 0.92), rgba(232, 244, 238, 0.86)),
+			var(--paper);
+		box-shadow: var(--shadow);
+		overflow: hidden;
+	}
+
+	.feather-visual {
+		position: relative;
+		height: 220px;
+		margin-bottom: 28px;
+		border-radius: 8px;
+		background:
+			linear-gradient(115deg, transparent 0 42%, rgba(41, 88, 109, 0.2) 43% 44%, transparent 45%),
+			radial-gradient(circle at 22% 22%, rgba(255, 255, 255, 0.92), transparent 34%),
+			linear-gradient(135deg, rgba(84, 143, 143, 0.25), rgba(201, 135, 100, 0.18));
+	}
+
+	.feather-visual span {
+		position: absolute;
+		left: 50%;
+		width: 132px;
+		height: 42px;
+		border: 1px solid rgba(41, 88, 109, 0.24);
+		border-radius: 999px 999px 999px 8px;
+		background: rgba(255, 253, 248, 0.72);
+		transform-origin: left center;
+	}
+
+	.feather-visual span:nth-child(1) {
+		top: 54px;
+		transform: rotate(-34deg);
+	}
+
+	.feather-visual span:nth-child(2) {
+		top: 92px;
+		transform: rotate(-12deg);
+	}
+
+	.feather-visual span:nth-child(3) {
+		top: 130px;
+		transform: rotate(12deg);
+	}
+
+	.panel-title {
+		color: var(--ink);
+		font-weight: 700;
+	}
+
+	.hero-panel ul {
+		margin: 0;
+		padding-left: 1.15rem;
+		color: var(--muted);
+	}
+
+	.post-list {
+		border-top: 1px solid var(--line);
+	}
+
+	.post-row {
+		display: grid;
+		grid-template-columns: 128px 1fr 150px;
+		align-items: center;
+		gap: 18px;
+		padding: 20px 0;
+		border-bottom: 1px solid var(--line);
+		color: var(--ink);
+		text-decoration: none;
+	}
+
+	.post-row:hover .post-title {
+		color: var(--teal-deep);
+	}
+
+	.post-title {
+		font-weight: 700;
+	}
+
+	.post-date {
+		color: var(--muted);
+		font-size: 0.92rem;
+		text-align: right;
+	}
+
+	@media (max-width: 860px) {
+		.hero {
+			grid-template-columns: 1fr;
+			min-height: auto;
+			padding: 28px 0 46px;
+		}
+
+		.hero h1 {
+			font-size: 3rem;
+		}
+
+		.hero-lede {
+			font-size: 1.06rem;
+		}
+
+		.post-row {
+			grid-template-columns: 1fr;
+			gap: 8px;
+		}
+
+		.post-date {
+			text-align: left;
+		}
+	}
+</style>

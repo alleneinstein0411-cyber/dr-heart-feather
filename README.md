@@ -1,63 +1,39 @@
-# Astro Starter Kit: Blog
+# 張醫師心羽診間
+
+用診間故事，陪民眾看懂心臟病、心導管與治療選擇。
+
+這是一個 Astro + Markdown 的靜態衛教網站，適合部署到 GitHub Pages，再用 Cloudflare 管理自訂網域。
+
+## 常用指令
 
 ```sh
-npm create astro@latest -- --template blog
+npm install
+npm run dev
+npm run build
+npm run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 寫新文章
 
-Features:
+文章放在 `src/content/blog/`。每篇文章是一個 Markdown 檔，frontmatter 建議保留這些欄位：
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+```md
+---
+title: "文章標題"
+description: "給列表與 SEO 使用的一句話摘要"
+category: "症狀"
+tags: ["胸悶", "心導管"]
+sourceLevel: "快速衛教文"
+pubDate: "2026-04-25"
+---
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## GitHub Pages
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+這個 repo 已經附上 `.github/workflows/deploy.yml`。推到 GitHub 之後，到 repository settings 的 Pages 頁面，Source 選 `GitHub Actions`。
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+若之後買了自訂網域，在 GitHub Pages 裡填入網域，並到 Cloudflare 設定 DNS 指向 GitHub Pages。
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 醫療內容提醒
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+本站文章供衛教參考，不能取代實際診療。個案故事需匿名化與改寫，不放可識別病人資訊，也不使用保證療效或過度招徠的文字。

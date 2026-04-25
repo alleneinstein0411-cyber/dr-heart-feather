@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
@@ -13,102 +12,112 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hant">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
+		<BaseHead title={`文章｜${SITE_TITLE}`} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
 		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
-									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
+		<main class="blog-page">
+			<section class="blog-hero">
+				<p class="eyebrow">Notes</p>
+				<h1>文章</h1>
+				<p>個案故事、心導管說明、常見症狀與照護提醒，會慢慢在這裡累積。</p>
+			</section>
+
+			<section class="article-list" aria-label="文章列表">
+				{
+					posts.map((post) => (
+						<a class="article-card" href={`/blog/${post.id}/`}>
+							<div>
+								<span class="tag">{post.data.category ?? '衛教文章'}</span>
+								<h2>{post.data.title}</h2>
+								<p>{post.data.description}</p>
+							</div>
+							<div class="meta">
+								<FormattedDate date={post.data.pubDate} />
+								{post.data.sourceLevel && <span>{post.data.sourceLevel}</span>}
+							</div>
+						</a>
+					))
+				}
 			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.blog-page {
+		max-width: 980px;
+	}
+
+	.blog-hero {
+		padding: 48px 0 30px;
+	}
+
+	.blog-hero h1 {
+		font-size: 3rem;
+	}
+
+	.blog-hero p:not(.eyebrow) {
+		max-width: 680px;
+		color: var(--muted);
+	}
+
+	.article-list {
+		display: grid;
+		gap: 16px;
+	}
+
+	.article-card {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) 180px;
+		gap: 20px;
+		padding: 24px 0;
+		border-top: 1px solid var(--line);
+		color: var(--ink);
+		text-decoration: none;
+	}
+
+	.article-card:last-child {
+		border-bottom: 1px solid var(--line);
+	}
+
+	.article-card h2 {
+		margin-top: 12px;
+		font-size: 1.45rem;
+	}
+
+	.article-card p {
+		max-width: 680px;
+		color: var(--muted);
+	}
+
+	.article-card:hover h2 {
+		color: var(--teal-deep);
+	}
+
+	.meta {
+		display: grid;
+		align-content: start;
+		gap: 6px;
+		color: var(--muted);
+		font-size: 0.9rem;
+		text-align: right;
+	}
+
+	@media (max-width: 760px) {
+		.blog-hero h1 {
+			font-size: 2.4rem;
+		}
+
+		.article-card {
+			grid-template-columns: 1fr;
+		}
+
+		.meta {
+			text-align: left;
+		}
+	}
+</style>
