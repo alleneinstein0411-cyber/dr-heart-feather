@@ -1,7 +1,7 @@
 ---
 title: "地中海飲食：給膽固醇過高者的飲食控制衛教"
 description: "給 LDL-C 或總膽固醇偏高者的民眾衛教：如何把地中海飲食做成高纖維、偏植物性、低飽和脂肪的版本。"
-category: "飲食與血脂"
+category: "健康生活"
 tags: ["地中海飲食", "膽固醇", "LDL-C", "飲食控制"]
 sourceLevel: "Sparrow Lite"
 pubDate: "2026-04-25"
