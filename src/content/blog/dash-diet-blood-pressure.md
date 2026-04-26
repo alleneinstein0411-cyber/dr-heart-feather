@@ -1,0 +1,74 @@
+---
+title: "DASH 飲食：給血壓偏高者的飲食控制衛教"
+description: "整理 2025 AHA/ACC 多學會高血壓指引、2024 ESC 高血壓指引與 NHLBI DASH 份量表，說明 DASH 飲食可以怎麼吃、怎麼減鈉，以及和 LDL-C 控制的關係。"
+category: "血壓筆記"
+tags: ["DASH飲食", "高血壓", "血壓控制", "減鈉", "LDL-C"]
+sourceLevel: "民眾衛教"
+pubDate: "2026-04-26"
+updatedDate: "2026-04-26"
+heroImage: "../../assets/dash/dash-hero.png"
+---
+
+先把 DASH 飲食想成一種「降血壓餐盤」，而不是一張昂貴或特殊的菜單。DASH 是 Dietary Approaches to Stop Hypertension 的縮寫，美國 NHLBI 把它定義成一種彈性、均衡、可長期維持的心臟健康飲食：多吃蔬菜、水果、全穀、低脂或脫脂乳品、魚、禽肉、豆類、堅果與植物油；少吃高飽和脂肪食物、甜飲、甜食與高鈉食物。<sup><a href="#ref-3">[3]</a></sup>
+
+這篇適合血壓偏高、高血壓，或同時擔心膽固醇與心血管風險的人。2025 AHA/ACC 多學會高血壓指引把 DASH 列為心臟健康飲食範例；2024 ESC 高血壓指引也建議採用 Mediterranean 或 DASH 這類健康均衡飲食，以降低血壓與心血管風險。<sup><a href="#ref-1">[1]</a><a href="#ref-5">[5]</a></sup>
+
+## 最重要的一句話
+
+> DASH 的核心不是「只吃水煮餐」，而是把餐盤改成「蔬果多、全穀多、豆堅果適量、低脂乳品、魚禽瘦肉、少鹽、少甜、少飽和脂肪」。
+
+以 NHLBI 的 2,000 大卡範例來看，每天目標大約是：全穀或穀類 6-8 份、蔬菜 4-5 份、水果 4-5 份、低脂或脫脂乳品 2-3 份、魚禽瘦肉 6 份以下、油脂 2-3 份；每週堅果/種子/乾豆/豌豆 4-5 份，甜食 5 份以下。鈉的目標是 2,300 mg/day，若能降到 1,500 mg/day，血壓可再進一步下降。<sup><a href="#ref-3">[3]</a><a href="#ref-4">[4]</a></sup>
+
+## 為什麼指引會推薦
+
+高血壓不是只有數字不好看，而是會增加心肌梗塞、中風、心衰竭、腎臟病與認知退化風險。2025 AHA/ACC 多學會指引把所有成人的生活型態調整列為預防或治療血壓偏高與高血壓的重要基礎；若血壓達到較高門檻，或合併心血管疾病、糖尿病、慢性腎臟病等風險，仍需要醫師評估藥物治療。<sup><a href="#ref-1">[1]</a></sup>
+
+把研究放在一起看，DASH 對血壓的平均效果是看得到的。2014 年一篇 RCT 統合分析納入 17 個隨機試驗、20 個比較、2,561 位成人，DASH 平均降低收縮壓 6.74 mm Hg、舒張壓 3.54 mm Hg。不過效果會因原本血壓、是否減重、是否限熱量、鈉攝取與執行程度而不同。<sup><a href="#ref-6">[6]</a></sup>
+
+![DASH 飲食替換示意，左邊是高鈉、高飽和脂肪與含糖飲品，右邊是全穀、蔬菜、豆類、魚、去皮禽肉、堅果與無糖飲品](../../assets/dash/dash-swaps.png)
+
+## 你的餐盤可以這樣改
+
+第一步先處理主食：白飯不是不能吃，但可以把一部分換成糙米、燕麥、全麥麵、地瓜、玉米或其他全穀/原型澱粉。NHLBI 的一份穀類可以是 1 片麵包、1 oz 乾 cereal，或 1/2 杯煮熟的飯、麵、麥片；多數穀類份量建議以全穀為主。<sup><a href="#ref-4">[4]</a></sup>
+
+第二步把蔬果變成固定班底。蔬菜一份可以是 1 杯生葉菜、1/2 杯煮熟或切好的蔬菜；水果一份可以是 1 顆中型水果、1/2 杯切好的水果，或 1/4 杯果乾。實務上可先從「午晚餐各半碗到一碗蔬菜、每天 1-2 份水果」開始，再慢慢接近 DASH 目標。<sup><a href="#ref-4">[4]</a></sup>
+
+第三步重新安排蛋白質。DASH 包含魚、去皮禽肉、豆類、低脂或脫脂乳品、堅果與種子；紅肉、加工肉和肥肉不是主角。豆腐、豆乾、毛豆、黑豆、鷹嘴豆、扁豆都很適合拿來替換香腸、培根、五花肉或炸雞。堅果有幫助，但份量要算：一份可以是 1/3 杯或 1.5 oz 堅果，或 2 湯匙花生醬。<sup><a href="#ref-4">[4]</a></sup>
+
+第四步是減鈉。2025 AHA/ACC 新指引新聞稿建議鈉少於 2,300 mg/day，並往 1,500 mg/day 靠近；ESC 則建議血壓偏高或高血壓成人盡可能把鈉限制在約 2 g/day 以下，約等於食鹽 5 g/day 或一小茶匙以下。最容易超標的常常不是鹽罐，而是加工食品、湯麵湯底、滷汁、醬料、泡菜、罐頭、火鍋湯、零食和外食。<sup><a href="#ref-2">[2]</a><a href="#ref-5">[5]</a></sup>
+
+## 少吃什麼
+
+DASH 要少的是高鈉、高糖和高飽和脂肪。常見需要減量的食物包括泡麵、鹹酥雞、炸物、加工肉、火腿、培根、香腸、重鹹滷味、濃湯、醬料很多的便當、甜飲、果汁飲料、甜點、奶油、鮮奶油、全脂乳製品、椰子油和棕櫚油。<sup><a href="#ref-2">[2]</a><a href="#ref-3">[3]</a></sup>
+
+如果同時在意 LDL-C，DASH 的方向也對。ACC 的 LDL-C 飲食文章指出，DASH 鼓勵水果、蔬菜、全穀與低脂乳品，限制飽和脂肪、鈉和添加糖；和典型美式飲食相比，DASH 平均可降低 LDL-C 約 11 mg/dL。不過對膽固醇來說，重點仍是低飽和脂肪、高纖維、少加工，不能把 DASH 講成會讓 LDL-C 大幅下降的治療。<sup><a href="#ref-7">[7]</a></sup>
+
+## 一天範例
+
+早餐可以是燕麥加無糖低脂鮮奶或無糖優格，配水果；如果不適合乳品，可和營養師討論鈣質與蛋白質來源。午餐選糙米或五穀飯、兩種蔬菜、豆腐/魚/去皮雞肉，醬汁另外放、湯少喝。晚餐用一半餐盤放蔬菜，四分之一放全穀或原型澱粉，四分之一放豆類、魚或去皮禽肉；點心用水果、無調味堅果、毛豆或無糖優格取代甜飲和餅乾。
+
+外食時最實用的順序是：先減湯汁和醬料，再減加工肉和炸物，接著把蔬菜加上來。滷味可多選青菜、豆腐、菇類、海帶，少選甜不辣、貢丸、香腸、滷汁和辣油；便當可請店家飯少一點、菜多一點、醬少一點，主菜優先選烤、滷、蒸、煮，少選炸排骨和三杯重醬。
+
+## 什麼情況要特別回診
+
+如果血壓常常在 140/90 mm Hg 以上，或已經有心肌梗塞、中風、糖尿病、慢性腎臟病、心衰竭、懷孕相關高血壓，請不要只靠飲食自己觀察。2025 AHA/ACC 指引仍把藥物治療與生活型態一起放進治療策略，特定風險族群在 130/80 mm Hg 以上就可能需要醫師評估。<sup><a href="#ref-1">[1]</a></sup>
+
+另外，想靠「高鉀」幫助血壓前要小心。ESC 指引提到，某些高鈉且沒有中重度慢性腎臟病的高血壓患者，可考慮增加鉀攝取；但如果有腎臟病，或正在使用會影響血鉀的藥物，例如部分利尿劑、ACE inhibitor、ARB 或 spironolactone，應由醫師監測血鉀，不要自行大量補鉀或換成高鉀鹽。<sup><a href="#ref-5">[5]</a></sup>
+
+## 給自己的三個小目標
+
+第一，這週先把家裡的泡麵、鹹零食、甜飲和加工肉減半。第二，每天至少讓一餐有「全穀主食、兩種蔬菜、一份豆類或魚禽瘦肉」。第三，買東西看鈉含量和飽和脂肪，讓調味回到食物本身，而不是靠醬料撐起整餐。
+
+重點不是吃得很完美，而是讓每天的餐盤慢慢往 DASH 靠近：蔬果多一點、全穀多一點、豆類堅果剛剛好、鹽和甜少一點、飽和脂肪少一點。這樣的改變，才是指引真正想讓人帶回家的生活方式。<sup><a href="#ref-3">[3]</a><a href="#ref-4">[4]</a></sup>
+
+## 主要來源
+
+<ol>
+  <li id="ref-1">American Heart Association. <a href="https://professional.heart.org/en/science-news/2025-high-blood-pressure-guideline/top-things-to-know">Top Things to Know: 2025 High Blood Pressure (BP) Guideline</a>. Updated August 14, 2025.</li>
+  <li id="ref-2">American College of Cardiology. <a href="https://www.acc.org/About-ACC/Press-Releases/2025/08/13/20/03/New-high-blood-pressure-guideline-emphasizes-prevention-early-treatment-to-reduce-CVD-risk">New High Blood Pressure Guideline Emphasizes Prevention, Early Treatment to Reduce CVD Risk</a>. August 13, 2025.</li>
+  <li id="ref-3">National Heart, Lung, and Blood Institute. <a href="https://www.nhlbi.nih.gov/health/dash-eating-plan">DASH Eating Plan</a>. Last updated February 25, 2026.</li>
+  <li id="ref-4">National Heart, Lung, and Blood Institute. <a href="https://www.nhlbi.nih.gov/health/dash/following-dash">Following DASH</a>. Last updated February 25, 2026.</li>
+  <li id="ref-5">McEvoy JW, McCarthy CP, Bruno RM, et al. <a href="https://academic.oup.com/eurheartj/article/45/38/3912/7741010">2024 ESC Guidelines for the management of elevated blood pressure and hypertension</a>. Eur Heart J. 2024;45(38):3912-4018.</li>
+  <li id="ref-6">Saneei P, Salehi-Abargouei A, Esmaillzadeh A, Azadbakht L. <a href="https://www.ncbi.nlm.nih.gov/books/NBK292159/">Influence of dietary approaches to stop hypertension (DASH) diet on blood pressure</a>. Nutr Metab Cardiovasc Dis. 2014;24(12):1253-1261.</li>
+  <li id="ref-7">American College of Cardiology. <a href="https://www.acc.org/Latest-in-Cardiology/Articles/2025/07/01/01/Prioritizing-Health-Dietary-Approaches-For-Elevated-LDL-C">Dietary Approaches For Elevated LDL-C</a>. 2025.</li>
+</ol>
