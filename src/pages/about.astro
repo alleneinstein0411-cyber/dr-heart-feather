@@ -7,8 +7,6 @@ import DoctorPortrait from '../assets/about/dr-yuan-chieh-chang-cartoon.png';
 import { SITE_TITLE } from '../consts';
 
 const appointmentUrl = 'https://hlapp.tzuchi.com.tw/tchw/OpdReg/DtQuery.aspx?dtno=20088&Loc=hl';
-const hospitalProfileUrl = 'https://hlm.tzuchi.com.tw/home/index.php/team-card/dr20088';
-
 const expertise = [
 	'一般心臟醫學',
 	'高血壓與高血脂照護',
@@ -47,14 +45,13 @@ const training = [
 					<h1 id="about-title">張元傑醫師</h1>
 					<p class="role">花蓮慈濟醫院心臟內科主治醫師</p>
 					<p class="lede">
-						在心臟內科門診裡，很多問題不是一句「要吃藥」就能解決。血壓、血脂、胸悶、喘、心導管或洗腎廔管治療，都需要病人知道自己正在面對什麼，也知道什麼時候該回來追蹤。
+						在心臟內科門診裡，我常遇到的問題，不只是「要不要吃藥」這麼簡單。血壓、血脂、胸悶、喘、心導管或洗腎廔管治療，都需要先知道自己正在面對什麼，也知道什麼時候該回來追蹤。
 					</p>
 					<p>
-						張元傑醫師希望用溫和、清楚、可以一起討論的方式，陪病人和家人理解檢查結果、治療選擇與日常照護，讓心臟照護不只是醫療處置，也是一段比較安心的同行。
+						我希望用溫和、清楚、可以一起討論的方式，陪你和家人理解檢查結果、治療選擇與日常照護，讓心臟照護不只是醫療處置，也是一段比較安心的同行。
 					</p>
 					<div class="button-row">
 						<a class="button" href={appointmentUrl} target="_blank" rel="noreferrer">花蓮慈濟掛號</a>
-						<a class="button secondary" href={hospitalProfileUrl} target="_blank" rel="noreferrer">醫院介紹頁</a>
 					</div>
 				</div>
 				<Image
@@ -115,10 +112,6 @@ const training = [
 				<div class="credential-list">
 					{training.map((item) => <p>{item}</p>)}
 				</div>
-				<p class="source">
-					資料參考：
-					<a href={hospitalProfileUrl} target="_blank" rel="noreferrer">花蓮慈濟醫院醫療團隊介紹</a>
-				</p>
 			</section>
 		</main>
 		<Footer />
@@ -201,8 +194,7 @@ const training = [
 		font-size: 0.92rem;
 	}
 
-	.note,
-	.source {
+	.note {
 		margin-top: 16px;
 		color: var(--muted);
 		font-size: 0.94rem;
