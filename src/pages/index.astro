@@ -5,6 +5,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import DoctorPortrait from '../assets/about/dr-yuan-chieh-chang-cartoon.png';
 import HualienHero from '../assets/home/hualien-fields-birds-hero.png';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
@@ -36,6 +37,7 @@ const paths = [
 ];
 
 const featuredPost = allPosts.find((post) => post.id === 'hypertension-complications-bp-measurement');
+const appointmentUrl = 'https://hlapp.tzuchi.com.tw/tchw/OpdReg/DtQuery.aspx?dtno=20088&Loc=hl';
 ---
 
 <!doctype html>
@@ -61,6 +63,28 @@ const featuredPost = allPosts.find((post) => post.id === 'hypertension-complicat
 						</div>
 					</div>
 				</div>
+			</section>
+
+			<section class="section doctor-intro" aria-labelledby="doctor-title">
+				<div class="doctor-copy">
+					<p class="eyebrow">About Dr. Chang</p>
+					<h2 id="doctor-title">張元傑醫師</h2>
+					<p class="doctor-role">花蓮慈濟醫院心臟內科主治醫師</p>
+					<p>
+						以心臟內科與介入導管治療為核心，陪病人理解血壓、血脂、胸悶、心衰竭、周邊血管與洗腎廔管相關問題。希望把診間裡複雜的醫療選擇，說成病人與家人聽得懂、也能安心討論的語言。
+					</p>
+					<div class="button-row">
+						<a class="button" href={`${base}about/`}>認識張醫師</a>
+						<a class="button secondary" href={appointmentUrl} target="_blank" rel="noreferrer">花蓮慈濟掛號</a>
+					</div>
+				</div>
+				<Image
+					class="doctor-portrait"
+					src={DoctorPortrait}
+					alt="張元傑醫師卡通風格形象照"
+					widths={[360, 540, 720]}
+					sizes="(max-width: 860px) 80vw, 360px"
+				/>
 			</section>
 
 			<section class="section" aria-labelledby="paths-title">
@@ -179,6 +203,36 @@ const featuredPost = allPosts.find((post) => post.id === 'hypertension-complicat
 		box-shadow: 0 14px 34px rgba(38, 50, 56, 0.16);
 	}
 
+	.doctor-intro {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) 320px;
+		align-items: center;
+		gap: 44px;
+	}
+
+	.doctor-copy {
+		max-width: 680px;
+	}
+
+	.doctor-role {
+		color: var(--teal-deep);
+		font-weight: 700;
+	}
+
+	.doctor-copy p:not(.eyebrow):not(.doctor-role) {
+		color: var(--muted);
+	}
+
+	.doctor-portrait {
+		width: 100%;
+		aspect-ratio: 4 / 5;
+		object-fit: cover;
+		object-position: center top;
+		border: 1px solid var(--line);
+		border-radius: 8px;
+		box-shadow: var(--shadow);
+	}
+
 
 	.post-list {
 		border-top: 1px solid var(--line);
@@ -252,6 +306,15 @@ const featuredPost = allPosts.find((post) => post.id === 'hypertension-complicat
 
 		.post-date {
 			text-align: left;
+		}
+
+		.doctor-intro {
+			grid-template-columns: 1fr;
+			gap: 26px;
+		}
+
+		.doctor-portrait {
+			width: min(360px, 100%);
 		}
 
 		.spotlight {

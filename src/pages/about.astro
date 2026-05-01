@@ -1,0 +1,267 @@
+---
+import { Image } from 'astro:assets';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import DoctorPortrait from '../assets/about/dr-yuan-chieh-chang-cartoon.png';
+import { SITE_TITLE } from '../consts';
+
+const appointmentUrl = 'https://hlapp.tzuchi.com.tw/tchw/OpdReg/DtQuery.aspx?dtno=20088&Loc=hl';
+const hospitalProfileUrl = 'https://hlm.tzuchi.com.tw/home/index.php/team-card/dr20088';
+
+const expertise = [
+	'一般心臟醫學',
+	'高血壓與高血脂照護',
+	'急性冠心病重症治療',
+	'介入導管治療',
+	'周邊血管疾病治療',
+	'洗腎廔管相關治療',
+	'心衰竭治療',
+];
+
+const training = [
+	'慈濟大學醫學系',
+	'花蓮慈濟醫院心臟內科主治醫師',
+	'花蓮慈濟醫院重症加護內科主治醫師',
+	'花蓮慈濟醫院心臟內科臨床研究醫師',
+	'中華民國內科專科醫師',
+	'中華民國心臟內科專科醫師',
+];
+---
+
+<!doctype html>
+<html lang="zh-Hant">
+	<head>
+		<BaseHead
+			title={`張元傑醫師介紹｜${SITE_TITLE}`}
+			description="張元傑醫師為花蓮慈濟醫院心臟內科主治醫師，專長包含心臟內科、介入導管、冠心病、周邊血管、洗腎廔管、高血壓與高血脂照護。"
+			image={DoctorPortrait}
+		/>
+	</head>
+	<body>
+		<Header />
+		<main class="about-page">
+			<section class="about-hero" aria-labelledby="about-title">
+				<div class="about-copy">
+					<p class="eyebrow">About Dr. Chang</p>
+					<h1 id="about-title">張元傑醫師</h1>
+					<p class="role">花蓮慈濟醫院心臟內科主治醫師</p>
+					<p class="lede">
+						在心臟內科門診裡，很多問題不是一句「要吃藥」就能解決。血壓、血脂、胸悶、喘、心導管或洗腎廔管治療，都需要病人知道自己正在面對什麼，也知道什麼時候該回來追蹤。
+					</p>
+					<p>
+						張元傑醫師希望用溫和、清楚、可以一起討論的方式，陪病人和家人理解檢查結果、治療選擇與日常照護，讓心臟照護不只是醫療處置，也是一段比較安心的同行。
+					</p>
+					<div class="button-row">
+						<a class="button" href={appointmentUrl} target="_blank" rel="noreferrer">花蓮慈濟掛號</a>
+						<a class="button secondary" href={hospitalProfileUrl} target="_blank" rel="noreferrer">醫院介紹頁</a>
+					</div>
+				</div>
+				<Image
+					class="portrait"
+					src={DoctorPortrait}
+					alt="張元傑醫師卡通風格形象照"
+					widths={[420, 640, 840]}
+					sizes="(max-width: 860px) 86vw, 420px"
+					loading="eager"
+				/>
+			</section>
+
+			<section class="section info-grid" aria-label="張醫師資訊">
+				<div>
+					<p class="eyebrow">Clinic</p>
+					<h2>門診時間</h2>
+					<div class="schedule-wrap">
+						<table class="schedule">
+							<thead>
+								<tr>
+									<th>星期</th>
+									<th>時段</th>
+									<th>地點</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>週四</td>
+									<td>下午</td>
+									<td>花蓮慈濟醫院心臟內科門診</td>
+								</tr>
+								<tr>
+									<td>週五</td>
+									<td>下午</td>
+									<td>花蓮慈濟醫院心臟內科門診</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<p class="note">實際診別、掛號額滿與臨時異動，請以花蓮慈濟醫院掛號系統公告為準。</p>
+				</div>
+				<div>
+					<p class="eyebrow">Care Focus</p>
+					<h2>專長</h2>
+					<ul class="pill-list">
+						{expertise.map((item) => <li>{item}</li>)}
+					</ul>
+				</div>
+			</section>
+
+			<section class="section credentials" aria-labelledby="credentials-title">
+				<div class="section-header">
+					<div>
+						<p class="eyebrow">Background</p>
+						<h2 id="credentials-title">學經歷與現職</h2>
+					</div>
+				</div>
+				<div class="credential-list">
+					{training.map((item) => <p>{item}</p>)}
+				</div>
+				<p class="source">
+					資料參考：
+					<a href={hospitalProfileUrl} target="_blank" rel="noreferrer">花蓮慈濟醫院醫療團隊介紹</a>
+				</p>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.about-page {
+		max-width: 1060px;
+	}
+
+	.about-hero {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) 380px;
+		align-items: center;
+		gap: 52px;
+		padding: 44px 0 36px;
+	}
+
+	.about-copy {
+		max-width: 700px;
+	}
+
+	.about-hero h1 {
+		font-size: 4rem;
+	}
+
+	.role {
+		color: var(--teal-deep);
+		font-size: 1.15rem;
+		font-weight: 700;
+	}
+
+	.lede {
+		color: #384743;
+		font-size: 1.12rem;
+	}
+
+	.about-copy p:not(.eyebrow):not(.role) {
+		color: var(--muted);
+	}
+
+	.portrait {
+		width: 100%;
+		aspect-ratio: 4 / 5;
+		object-fit: cover;
+		object-position: center top;
+		border: 1px solid var(--line);
+		border-radius: 8px;
+		box-shadow: var(--shadow);
+	}
+
+	.info-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(280px, 0.78fr);
+		gap: 52px;
+	}
+
+	.schedule-wrap {
+		overflow-x: auto;
+		border-top: 1px solid var(--line);
+	}
+
+	.schedule {
+		width: 100%;
+		border-collapse: collapse;
+		min-width: 540px;
+	}
+
+	.schedule th,
+	.schedule td {
+		padding: 16px 14px;
+		border-bottom: 1px solid var(--line);
+		text-align: left;
+		vertical-align: top;
+	}
+
+	.schedule th {
+		color: var(--teal-deep);
+		font-size: 0.92rem;
+	}
+
+	.note,
+	.source {
+		margin-top: 16px;
+		color: var(--muted);
+		font-size: 0.94rem;
+	}
+
+	.pill-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+
+	.pill-list li {
+		padding: 9px 12px;
+		border: 1px solid rgba(84, 143, 143, 0.22);
+		border-radius: 999px;
+		background: rgba(84, 143, 143, 0.08);
+		color: var(--teal-deep);
+		font-size: 0.94rem;
+		font-weight: 700;
+	}
+
+	.credentials {
+		padding-bottom: 28px;
+	}
+
+	.credential-list {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 12px 22px;
+		border-top: 1px solid var(--line);
+		padding-top: 20px;
+	}
+
+	.credential-list p {
+		margin: 0;
+		color: #384743;
+	}
+
+	@media (max-width: 860px) {
+		.about-hero {
+			grid-template-columns: 1fr;
+			gap: 28px;
+			padding-top: 26px;
+		}
+
+		.about-hero h1 {
+			font-size: 2.8rem;
+		}
+
+		.portrait {
+			width: min(390px, 100%);
+		}
+
+		.info-grid {
+			grid-template-columns: 1fr;
+			gap: 38px;
+		}
+	}
+</style>
